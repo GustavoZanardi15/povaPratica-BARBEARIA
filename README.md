@@ -1,6 +1,6 @@
 # projbarbearia
 
-Um projeto em flutter 
+Um projeto em flutter com o intuito de ajudar barbeiros a organizar sua barbearia .
 
 ## Getting Started
 
