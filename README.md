@@ -1,6 +1,8 @@
 # projbarbearia
 
 Um projeto em flutter com o intuito de ajudar barbeiros a organizar sua barbearia .
+Projeto ainda em andamento que possibilitara o barbeiro listar seus serviços, organizar seus horarios 
+
 
 ## Getting Started
 
