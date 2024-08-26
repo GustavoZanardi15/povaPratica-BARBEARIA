@@ -1,6 +1,6 @@
 # projbarbearia
 
-A new Flutter project.
+Um projeto em flutter 
 
 ## Getting Started
 
