@@ -30,6 +30,7 @@ class _PageFormState extends State<PageForm> {
       key: _formKey,
       child: Column(
         children: <Widget>[
+          
           TextFormField(
             decoration: InputDecoration(
               border: OutlineInputBorder(),
@@ -82,19 +83,20 @@ class _PageFormState extends State<PageForm> {
             }
           ),
           SizedBox(height: 20), 
-          TextButton(
+          SizedBox(
+            width: double.infinity,
+            child:TextButton(
             style: TextButton.styleFrom(
               backgroundColor: Colors.blue,
               padding: EdgeInsets.symmetric(vertical: 15),
             ),
-            child: Text(
-              'Submit',
-              style: TextStyle(
+            child: Text('Submit',style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
             ),
             onPressed: () {
+
               if (_formKey.currentState!.validate()) { 
                 _formKey.currentState!.save(); 
                 print('Usuário: $_user'); 
@@ -107,6 +109,7 @@ class _PageFormState extends State<PageForm> {
               }
             },
           ),
+          )
         ],
       ),
     );
