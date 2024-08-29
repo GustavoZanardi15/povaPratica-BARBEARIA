@@ -17,9 +17,11 @@ class PageForm extends StatefulWidget {
 
 class _PageFormState extends State<PageForm> {
   final _formKey = GlobalKey<FormState>();
+
   AutovalidateMode _autovalidate = AutovalidateMode.disabled; 
-  var _user;
-  var _senha;
+  String? _user; 
+  String? _senha;
+  String? _validacao;
 
   @override
   Widget build(BuildContext context) {
@@ -46,11 +48,12 @@ class _PageFormState extends State<PageForm> {
           SizedBox(height: 20),
           TextFormField(
             obscureText: true,
+
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               labelText: 'Senha',
             ),
-            onSaved: (value) {
+            onChanged: (value) {
               _senha = value;
             },
             validator: (value) {
@@ -60,9 +63,29 @@ class _PageFormState extends State<PageForm> {
               return null;
             },
           ),
+          SizedBox(height: 20),
+          TextFormField(
+            obscureText: true,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: 'Repita sua senha',
+            ),
+            onSaved: (value){
+              _validacao = value;
+            },
+            validator: (value){
+              print('senha value: $_senha');
+              if(_senha != value){
+                return 'Confirme sua senha';
+              }
+              return null;
+            }
+          ),
+          SizedBox(height: 20), 
           TextButton(
             style: TextButton.styleFrom(
               backgroundColor: Colors.blue,
+              padding: EdgeInsets.symmetric(vertical: 15),
             ),
             child: Text(
               'Submit',
@@ -74,7 +97,9 @@ class _PageFormState extends State<PageForm> {
             onPressed: () {
               if (_formKey.currentState!.validate()) { 
                 _formKey.currentState!.save(); 
-                print(_user); 
+                print('Usuário: $_user'); 
+                print('Senha: $_senha');
+                print(_validacao);
               } else {
                 setState(() {
                   _autovalidate = AutovalidateMode.always; 
