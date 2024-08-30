@@ -7,8 +7,9 @@ class HeaderText extends StatelessWidget {
       'Cadastre-se',
       textAlign: TextAlign.center,
       style: TextStyle(
-        fontSize: 35,
-        color: Colors.black,
+        fontSize: 50,
+        fontFamily: 'Arial',
+        color: Colors.white,
       ),
     );
   }

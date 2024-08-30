@@ -26,13 +26,13 @@ class _PageFormState extends State<PageForm> {
        Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
             colors: [
               Color(0xFF221A17),
               Color(0xFF632D13),
               Color(0xFF783A21),
             ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight
           ),
         ),
        ),
@@ -43,6 +43,7 @@ class _PageFormState extends State<PageForm> {
         padding: EdgeInsets.all(20.0),
         child: Column(
         children: <Widget>[
+          
           HeaderText(),
           SizedBox(height: 20),
           UserNameField(
