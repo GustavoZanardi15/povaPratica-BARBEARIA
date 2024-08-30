@@ -11,6 +11,7 @@ class PageForm extends StatefulWidget {
 }
 
 class _PageFormState extends State<PageForm> {
+
   final _formKey = GlobalKey<FormState>();
   AutovalidateMode _autovalidate = AutovalidateMode.disabled; 
   String? _user; 
@@ -19,10 +20,28 @@ class _PageFormState extends State<PageForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
+    return Scaffold(
+      body: Stack(
+      children: [
+       Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color(0xFF221A17),
+              Color(0xFF632D13),
+              Color(0xFF783A21),
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight
+          ),
+        ),
+       ),
+      Form(
       autovalidateMode: _autovalidate, 
       key: _formKey,
-      child: Column(
+      child: SingleChildScrollView(
+        padding: EdgeInsets.all(20.0),
+        child: Column(
         children: <Widget>[
           HeaderText(),
           SizedBox(height: 20),
@@ -52,12 +71,17 @@ class _PageFormState extends State<PageForm> {
               } else {
                 setState(() {
                   _autovalidate = AutovalidateMode.always; 
-                });
-              }
-            },
+        });
+                      }
+                    },
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),
     );
   }
 }
+
